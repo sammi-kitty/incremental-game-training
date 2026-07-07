@@ -12,7 +12,9 @@ Coding practice consisting of an incremental game, written in Rust and Python
 
 ## Project Structure
 
-### json-based templates
+### Data management
+
+#### json-based templates
 Each "machine" should be built from a json template, specifying:
 - **Machine Template**
 - Name (string)
@@ -27,7 +29,7 @@ Each "machine" should be built from a json template, specifying:
     - Multiplier (number)
     - Array of required upgrade names (array of strings)
 
-### json-based saves
+#### json-based saves
 A save should consist of:
 - **Save Object**
 - Name (string)
@@ -47,3 +49,6 @@ A save should consist of:
         - Multiplier (number)
         - Array of required upgrade names (array of strings)
         - *is_purchased* (bool)
+
+#### Notes
+There needs to be a way to handle new upgrades being added (in an update), and them automatically being added to the lists of upgrades in existing save files
