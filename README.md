@@ -6,6 +6,6 @@ Coding practice consisting of an incremental game, written in Rust and Python
 - [ ] json-based save system
 - [ ] ticking system (to be thought out)
 - [ ] menu system (independent of ticking system, to be thought out)
-- [ ] shop
-MAYBE
+    - [ ] shop
+### MAYBE
 - [ ] graphics
