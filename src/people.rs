@@ -1,22 +1,15 @@
 use std::fmt;
-use rand;
 
 struct Person {
     name: String,
     age: i32,
-    gender: Gender,
+    gender: Gender<String>,
     alignment: Alignment,
     damage: i32,
     health: i32,
     dead: bool,
 }
 impl fmt::Display for Person {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{} is {} years old and {}",
-    self.name, self.age, self.gender)
-    }
-}
-impl fmt::Debug for Person {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "{} is {} years old and {}",
     self.name, self.age, self.gender)
@@ -36,20 +29,22 @@ impl Person {
         }
     }
 }
-// TODO: ADD GENERIC GENDER TYPE
-enum Gender {
+
+enum Gender<String> {
     Male,
     Female, 
     Nonbinary,
     Agender,
+    Gender(String)
 }
-impl fmt::Display for Gender {
+impl fmt::Display for Gender<String> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             Gender::Male => write!(f, "Male"),
             Gender::Female => write!(f, "Female"),
             Gender::Nonbinary => write!(f, "Nonbinary"),
-            Gender::Agender => write!(f, "Agender")
+            Gender::Agender => write!(f, "Agender"),
+            Gender::Gender(gender) => write!(f, "{}", gender)
         }
     }
 }
@@ -81,11 +76,11 @@ pub fn people() {
             dead: false
         },
     ];
+    
+    //let mut blue: [Person; 2] = [list[0], list[1]];
+    //let mut red: [Person; 2] = [list[0], list[1]];
 
-    let mut blue: [Person; 2] = [list[0], list[1]];
-    let mut red: [Person; 2] = [list[0], list[1]];
-
-    let mut alive_blue: Vec<&mut Person> = blue.iter_mut().filter(|person| !person.dead).collect();
-    let mut alive_red: Vec<&mut Person> = red.iter_mut().filter(|person| !person.dead).collect();
+    //let mut alive_blue: Vec<&mut Person> = blue.iter_mut().filter(|person| !person.dead).collect();
+    //let mut alive_red: Vec<&mut Person> = red.iter_mut().filter(|person| !person.dead).collect();
     
 }
